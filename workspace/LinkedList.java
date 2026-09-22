@@ -17,15 +17,31 @@ Problem:  Write a program that keeps and manipulates a linked list of
 public class LinkedList{
 
   //instance varialbes go here (think about what you need to keep track of!)
+  ListNode head;
+
+
 
   //constructors go here
+  public LinkedList(){
+    head = null;
+  }
+
+
 
 
   //precondition: the list has been initialized
   //postcondition: the ListNode containing the appropriate value has been added and returned
   public ListNode addAValue(String line)
   {
-    return null;
+    ListNode temp  = head;
+    if (temp.getNext() != null) {
+      if (line.compareTo(temp.getNext.getValue()) < 0) {
+            ListNode node = new ListNode(line, temp);
+            head.setNext(node);
+      }
+    }
+    return head;
+
   }
 
   //precondition: the list has been initialized
@@ -40,7 +56,7 @@ public class LinkedList{
   //postconditions: returns a string containing all values appended together with spaces between.
   public String showValues()
   {
-    return null;
+    return head; 
   }
 
   //precondition: the list has been initialized
