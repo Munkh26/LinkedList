@@ -19,8 +19,6 @@ public class LinkedList{
   //instance varialbes go here (think about what you need to keep track of!)
   ListNode head;
 
-
-
   //constructors go here
   public LinkedList(){
     head = null;
@@ -56,7 +54,11 @@ public class LinkedList{
   //postconditions: returns a string containing all values appended together with spaces between.
   public String showValues()
   {
-    return head; 
+    String str = "";
+    while (head.getNext() != null) {
+      str += head.getNext().getValue();
+    }
+    return str; 
   }
 
   //precondition: the list has been initialized
