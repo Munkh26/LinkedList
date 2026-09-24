@@ -28,14 +28,24 @@ public class LinkedList{
   //postcondition: the ListNode containing the appropriate value has been added and returned
   public ListNode addAValue(String line)
   {
-    ListNode temp  = head;
-    while (temp.getNext() != null && line.compareTo(temp.getNext().getValue()) > 0) {
-      temp = temp.getNext();
-      ListNode node = new ListNode(line, temp);
-      temp.setNext(node);
+    if (head == null) {
+      head = new ListNode(line, head);
+      return head;
     }
-    head = temp;
-    return head;
+
+    if (line.compareTo(head.getValue()) < 0) {
+      head = new ListNode(line, head);
+      return head;
+    }
+
+    ListNode temp = head;
+    while (temp.getNext() != null && line.compareTo(temp.getNext().getValue()) >= 0) {
+      temp = temp.getNext();
+    }
+
+    ListNode node = new ListNode(line, temp.getNext());
+    temp.setNext(node);
+    return node;
   }
 
   //precondition: the list has been initialized
@@ -43,7 +53,26 @@ public class LinkedList{
   //if the value is not in the list returns null
   public ListNode deleteAValue(String line)
   {
-    return null;
+    if (head == null) {
+      return null;
+    }
+    if (head.getValue().equals(line)) {
+      ListNode delete = head;
+      head = head.getNext();
+      return delete;
+    }
+
+    ListNode temp = head;
+    while (temp.getNext() != null && !temp.getNext().getValue().equals(line)) {
+      temp = temp.getNext();
+    }
+    if (temp.getNext() == null || !temp.getNext().getValue().equals(line)) {
+      return null;
+    }
+    ListNode nodeToDelete = temp.getNext();
+    temp.setNext(temp.getNext().getNext());
+    return nodeToDelete;
+
   }
 
   //precondition: the list has been initialized
@@ -51,14 +80,18 @@ public class LinkedList{
   public String showValues()
   {
     String str = "";
-    if (head != null) {
-      str += head.getValue();
+    if (head == null) {
+      str = "";
     }
-    ListNode temp = head;
-    while (temp.getNext() != null) {
-      temp = temp.getNext();
-      str += " " + temp.getValue();
+    else {
+      ListNode temp = head;
+      str += temp.getValue();
+      while (temp.getNext() != null) {
+        temp = temp.getNext();
+        str += " " + temp.getValue();
+      }
     }
+
     return str; 
   }
 
@@ -66,6 +99,6 @@ public class LinkedList{
   //postconditions: clears the list.
   public void clear()
   {
-
+    head = null;
   }
 }
