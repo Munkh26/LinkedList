@@ -24,22 +24,18 @@ public class LinkedList{
     head = null;
   }
 
-
-
-
   //precondition: the list has been initialized
   //postcondition: the ListNode containing the appropriate value has been added and returned
   public ListNode addAValue(String line)
   {
     ListNode temp  = head;
-    if (temp.getNext() != null) {
-      if (line.compareTo(temp.getNext.getValue()) < 0) {
-            ListNode node = new ListNode(line, temp);
-            head.setNext(node);
-      }
+    while (temp.getNext() != null && line.compareTo(temp.getNext().getValue()) > 0) {
+      temp = temp.getNext();
+      ListNode node = new ListNode(line, temp);
+      temp.setNext(node);
     }
+    head = temp;
     return head;
-
   }
 
   //precondition: the list has been initialized
@@ -55,8 +51,13 @@ public class LinkedList{
   public String showValues()
   {
     String str = "";
-    while (head.getNext() != null) {
-      str += head.getNext().getValue();
+    if (head != null) {
+      str += head.getValue();
+    }
+    ListNode temp = head;
+    while (temp.getNext() != null) {
+      temp = temp.getNext();
+      str += " " + temp.getValue();
     }
     return str; 
   }
@@ -65,6 +66,6 @@ public class LinkedList{
   //postconditions: clears the list.
   public void clear()
   {
-  
+
   }
 }
