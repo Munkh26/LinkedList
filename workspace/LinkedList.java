@@ -101,4 +101,25 @@ public class LinkedList{
   {
     head = null;
   }
+
+  public ListNode reverse()
+  {
+    if (head == null) {
+      return null;
+    }
+    if (head.getNext() == null) {
+      return head;
+    }
+
+    if (head.getNext().getNext() == null) {
+      ListNode temp = head;
+      head.getNext().setNext(temp);
+      return head;
+    }
+
+    return null;
+
+  }
+
+
 }
