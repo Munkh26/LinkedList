@@ -112,8 +112,9 @@ public class LinkedList{
     }
 
     if (head.getNext().getNext() == null) {
-      ListNode temp = head;
-      head.getNext().setNext(temp);
+      ListNode temp = head.getNext();
+      temp.setNext(head);
+      head = temp;
       return head;
     }
 
