@@ -107,11 +107,24 @@ public class LinkedList{
     if (head == null || head.getNext() == null) {
       return null;
     }
-    LinkNode temp = head;
-    LinkNode temp2 = head.getNext();
-    
 
-    return null;
+    ListNode prev = head;
+    ListNode curr = head.getNext();
+    ListNode next = head.getNext();
+
+    while (next != null) {
+      curr.setNext(prev);
+      prev = curr;
+      
+      next = next.getNext();
+    //curr.setNext(next);
+    //curr = curr.getNext();
+
+    }
+
+    head = curr;
+
+    return head;
 
   }
 
