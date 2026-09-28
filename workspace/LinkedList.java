@@ -104,6 +104,9 @@ public class LinkedList{
 
   public ListNode reverse()
   {
+    ListNode temp = head;
+    ListNode temp2 = head.getNext(); 
+
     if (head == null) {
       return null;
     }
@@ -112,9 +115,10 @@ public class LinkedList{
     }
 
     if (head.getNext().getNext() == null) {
-      ListNode temp = head.getNext();
-      temp.setNext(head);
+      temp2.setNext(head);
+      temp = temp2;
       head = temp;
+
       return head;
     }
 
