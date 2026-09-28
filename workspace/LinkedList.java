@@ -104,28 +104,23 @@ public class LinkedList{
 
   public ListNode reverse()
   {
-    if (head == null || head.getNext() == null) {
-      return null;
-    }
+    ListNode prev = null;
+    ListNode curr = head;
+    ListNode next = null;
 
-    ListNode prev = head;
-    ListNode curr = head.getNext();
-    ListNode next = head.getNext();
-
-    while (next != null) {
+    while (curr != null) {
+      next = curr.getNext();
       curr.setNext(prev);
       prev = curr;
-      
-      next = next.getNext();
-    //curr.setNext(next);
-    //curr = curr.getNext();
-
+      curr = next;
     }
-
-    head = curr;
-
+    head = prev;
     return head;
 
+  }
+
+  public ListNode nReverse(ListNode org, int n) {
+    
   }
 
 
