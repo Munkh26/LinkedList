@@ -120,7 +120,11 @@ public class LinkedList{
   }
 
   public ListNode nReverse(ListNode org, int n) {
-    
+    ListNode flip = org;
+    ListNode next = null;
+    for (int i = 0; i < n; i++) {
+        next = flip.getNext();
+    }
   }
 
 

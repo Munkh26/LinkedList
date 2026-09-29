@@ -35,6 +35,11 @@ public class Main{
           {
             list.reverse();
           }
+          else if(input.length()>9 && input.substring(0, 9).equals("nReverse"))
+          {
+            //aaaa
+          }
+
           else if(!input.equals("exit")){
               System.out.println("I don't know how to "+input);
           }
