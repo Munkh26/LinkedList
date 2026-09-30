@@ -35,9 +35,9 @@ public class Main{
           {
             list.reverse();
           }
-          else if(input.length()>8 && input.substring(0, 8).equals("nReverse"))
+          else if (input.length() > 9 && input.substring(0, 8).equals("nReverse"))
           {
-            //list.nReverse(list, Integer.parseInt(input.substring(9)));
+            list.nReverse(Integer.parseInt(input.substring(9)));
           }
 
           else if(!input.equals("exit")){

@@ -143,36 +143,21 @@ public class LinkedList{
 
  //precondition: the list has been initialized and n is a positive integer and never larger than the elements in the list
  //postcondition: chunk of n amount of nodes are reversed and repeated until it reaches the end of the list.
- /*
- public ListNode nReverse(LinkedList org, int n) {
-
-   LinkedList list = new LinkedList();
-   ListNode reversed = org.getHead();
-   ListNode temp = org.getHead();
-   int count = 0;
-   while (count != n) {
-     list.addAValue(temp.getValue());
+ public ListNode nReverse(int n) {
+  if (head == null || n <= 1) {
+    return head;
+  }
+  int count = 0;
+  ListNode temp = head;
+  while (temp.getNext() != null) {
+    count++;
     temp = temp.getNext();
-     }
-     count++;
-     if (count == n) {
-       list.reverse();
-       reversed.setValue(temp.getValue());
-       while (temp.getNext() != null) {
-         temp = temp.getNext();
-         reversed.setNext(temp);
-       }
-       count = 0;
-     }
-   }
-   return reversed;
+  }
+
+  
+  return null;
  }
 
-
- public ListNode getHead() {
-   return head;
- }
-  */
 
 
 }
