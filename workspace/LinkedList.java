@@ -147,18 +147,20 @@ public class LinkedList{
   if (org.head == null || n <= 1) {
     return org.head;
   }
-  int count = 1;
+  int count = 0;
   ListNode temp = org.head;
-  while (temp.getNext() != null) {
+  while (temp != null) {
     count++;
     temp = temp.getNext();
   }
-  System.out.println(count);
-  ListNode group = null;
+
+  ListNode group = new ListNode("", org.head);
+  ListNode prevGroup = group;
+  ListNode curr = org.head;
 
   while (count >= n) {
+    ListNode startGroup = curr;
     ListNode prev = null;
-    ListNode curr = head;
     ListNode next = null;
     for (int i = 0; i < n; i++) {
       if (curr != null) {
@@ -166,24 +168,18 @@ public class LinkedList{
         curr.setNext(prev);
         prev = curr;
         curr = next;
-        System.out.println(prev);
       }
+    }
 
-    }
-    if (group == null) {
-      group = prev;
-    }
-    else {
-      while (group.getNext() != null) {
-        group = group.getNext();
-      }
-      group.setNext(prev);
-    }
+    prevGroup.setNext(prev);
+    startGroup.setNext(curr);
+    prevGroup = startGroup;
+
     count -= n;
   }
-  System.out.println(group);
-
-  return group;
+  org.head = group.getNext();
+  return org.head;
+  
  }
 
 }
