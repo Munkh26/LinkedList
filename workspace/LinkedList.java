@@ -1,6 +1,6 @@
 // Name: Munkhsoyombo Munkhbat
 // Date: 09/29/2026
-// Description: Implements a linked list of strings with operations to insert values in alphabetical order, remove the matching value, display or clear the list, and reverse the entire list.
+// Description: Implements a linked list of strings with operations to insert values in alphabetical order, remove the matching value, display or clear the list, and reverse the entire list. It can also reverse chunk of n amount of nodes and repeat it until it reaches the end of the list.
 
 /*
 Problem:  Write a program that keeps and manipulates a linked list of
