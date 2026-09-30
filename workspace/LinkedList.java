@@ -1,4 +1,4 @@
-// Name: Munkhsoyombo Munkhbat
+
 // Date: 09/29/2026
 // Description: Implements a linked list of strings with operations to insert values in alphabetical order, remove the matching value, display or clear the list, and reverse the entire list. It can also reverse chunks of n nodes and repeat it until it reaches the end of the list.
 
@@ -153,11 +153,22 @@ public class LinkedList{
     count++;
     temp = temp.getNext();
   }
+  ListNode group = null;
+  ListNode newGroup = head;
 
-  
-  return null;
+  while (count > n) {
+    ListNode prev = null;
+    ListNode curr = newGroup;
+    ListNode next = null;
+
+    for (int i = 0; i < n; i++) {
+      next = curr.getNext();
+      curr.setNext(prev);
+      prev = curr;
+      curr = next;
+    }
+  }
+  return group;
  }
-
-
 
 }
