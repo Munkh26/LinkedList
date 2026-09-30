@@ -145,16 +145,15 @@ public class LinkedList{
  //postcondition: chunk of n amount of nodes are reversed and repeated until it reaches the end of the list.
  /*
  public ListNode nReverse(LinkedList org, int n) {
-   return null;
-
 
    LinkedList list = new LinkedList();
    ListNode reversed = org.getHead();
-   ListNode temp = list.getHead();
+   ListNode temp = org.getHead();
    int count = 0;
    while (count != n) {
      list.addAValue(temp.getValue());
-     temp = temp.getNext();
+    temp = temp.getNext();
+     }
      count++;
      if (count == n) {
        list.reverse();
@@ -173,7 +172,7 @@ public class LinkedList{
  public ListNode getHead() {
    return head;
  }
- */
+  */
 
 
 }
